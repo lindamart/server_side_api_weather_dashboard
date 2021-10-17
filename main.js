@@ -1,6 +1,8 @@
 var openweatherAPI = "872959f993db1c784285080e52d4ef4e";
 var currentCity = "";
 var lastCity = "";
+
+
 // trying error command
 var handleErrors = (response) => {
     if (!response.ok) {
@@ -47,10 +49,8 @@ var getCurrentConditions = (event) => {
             </ul>`;
 
         $('#current-weather').html(currentWeatherHTML);
-        // Get the latitude and longitude for the UV search from Open Weather Maps API  MISSING SOMETHING CHECK BEFORE SUBMITTED!!!
-        let lat = response.coord.lat;
-        let lon = response.coord.lon;
-        let uvQueryURL = 'https:api.openweathermap.org/data/2.5/onecall?lat={lat}&lon=${lon}&exclude={hourly}&appid={872959f993db1c784285080e52d4ef4e}'
+        // UV  MISSING SOME THINGS CHECK BEFORE SUBMITTED!!!
+        let uvQueryURL = 'https://api.openweathermap.org/data/2.5/uvi?appid=${openweatherAPI}&lat=${lat}&lon=${lon}'
 
         // color display for the UV index
         fetch(uvQueryURL)
